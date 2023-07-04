@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol AddItemViewControllerDelegate: AnyObject {
   func itemDetailViewControllerDidCancel(
@@ -24,6 +25,9 @@ class AddItemViewController: UITableViewController,
 UITextFieldDelegate{
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var datePicker: UIDatePicker!
+
     weak var delegate: AddItemViewControllerDelegate?
     var itemToEdit: ChecklistItem?
     
@@ -34,6 +38,8 @@ UITextFieldDelegate{
             title = "Edit Item "
             textField.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
         }
     }
     //Mark : - Actions
@@ -43,26 +49,24 @@ UITextFieldDelegate{
     @IBAction func done(){
         if let item = itemToEdit{
             item.text = textField.text!
+            
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(
                 self,
                 didFinishEditing: item)
         }else{
             let item = ChecklistItem()
             item.text = textField.text!
+            item.checked = false
+            
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
+            
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -90,6 +94,17 @@ UITextFieldDelegate{
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         doneBarButton.isEnabled = false
         return true
+    }
+    
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+      textField.resignFirstResponder()
+      if switchControl.isOn {
+         let center = UNUserNotificationCenter.current()
+         center.requestAuthorization(options: [.alert, .sound]) {_, _
+    in
+          // do nothing
+        }
+      }
     }
 
 }

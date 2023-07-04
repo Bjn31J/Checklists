@@ -245,6 +245,72 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="UIB-FD-Cjb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="68c-pb-uTw">
+                                        <rect key="frame" x="0.0" y="126.33333587646484" width="393" height="45.333332061767578"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68c-pb-uTw" id="ddv-2P-r78">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRl-BF-TM8">
+                                                    <rect key="frame" x="31" y="11.999999999999998" width="86" height="21.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hvS-mk-j1L">
+                                                    <rect key="frame" x="309" y="7" width="51" height="31.333333333333329"/>
+                                                    <color key="onTintColor" red="0.015686274510000001" green="0.66274509800000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindToggled:" destination="7UL-br-riN" eventType="valueChanged" id="0YL-wH-i8H"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cRl-BF-TM8" firstAttribute="centerY" secondItem="ddv-2P-r78" secondAttribute="centerY" id="080-Gn-vNs"/>
+                                                <constraint firstItem="cRl-BF-TM8" firstAttribute="leading" secondItem="ddv-2P-r78" secondAttribute="leadingMargin" constant="11" id="NIl-Kg-hZh"/>
+                                                <constraint firstItem="cRl-BF-TM8" firstAttribute="centerY" secondItem="hvS-mk-j1L" secondAttribute="centerY" id="U8u-so-K2i"/>
+                                                <constraint firstItem="hvS-mk-j1L" firstAttribute="top" secondItem="ddv-2P-r78" secondAttribute="topMargin" constant="-4" id="hPl-Oa-TTi"/>
+                                                <constraint firstItem="hvS-mk-j1L" firstAttribute="leading" secondItem="cRl-BF-TM8" secondAttribute="trailing" constant="8" id="m8H-sr-6Se"/>
+                                                <constraint firstItem="cRl-BF-TM8" firstAttribute="top" secondItem="ddv-2P-r78" secondAttribute="topMargin" constant="1" id="t6F-0g-CDd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Rv-LR-KZ6">
+                                        <rect key="frame" x="0.0" y="171.66666793823242" width="393" height="54.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Rv-LR-KZ6" id="8AS-vD-Xja">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="54.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-Zk-UWE">
+                                                    <rect key="frame" x="35" y="11.000000000000002" width="71" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fUR-72-inm">
+                                                    <rect key="frame" x="124" y="4" width="230" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="0Ll-31-ttF"/>
+                                                    </constraints>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fUR-72-inm" secondAttribute="bottom" constant="16" id="0BH-Kv-Dx7"/>
+                                                <constraint firstItem="OHc-Zk-UWE" firstAttribute="top" secondItem="8AS-vD-Xja" secondAttribute="topMargin" id="9xm-sV-geV"/>
+                                                <constraint firstItem="OHc-Zk-UWE" firstAttribute="leading" secondItem="8AS-vD-Xja" secondAttribute="leadingMargin" constant="15" id="BXU-9F-0Te"/>
+                                                <constraint firstItem="fUR-72-inm" firstAttribute="centerY" secondItem="OHc-Zk-UWE" secondAttribute="centerY" id="Qxa-Dh-paI"/>
+                                                <constraint firstItem="fUR-72-inm" firstAttribute="top" secondItem="8AS-vD-Xja" secondAttribute="top" constant="4" id="Vkm-H6-wD2"/>
+                                                <constraint firstItem="fUR-72-inm" firstAttribute="leading" secondItem="OHc-Zk-UWE" secondAttribute="trailing" constant="8" id="lSo-k3-pGn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fUR-72-inm" secondAttribute="trailing" constant="19" id="uV1-U9-ho4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="7UL-br-riN" id="5aQ-KS-vLb"/>
@@ -264,13 +330,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="fUR-72-inm" id="Afs-bJ-EMp"/>
                         <outlet property="doneBarButton" destination="Y0D-1u-4Lc" id="9sc-dG-kbk"/>
+                        <outlet property="shouldRemindSwitch" destination="hvS-mk-j1L" id="YLm-1U-BrN"/>
                         <outlet property="textField" destination="cZb-KK-6SO" id="2cJ-QY-D6v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOq-gp-UGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021" y="-673"/>
+            <point key="canvasLocation" x="2020.6106870229007" y="-673.23943661971839"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2nA-HQ-1LZ">
@@ -330,7 +398,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qwQ-Qt-Hce"/>
+        <segue reference="PiA-MO-el5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.015686274509803921" green="0.66274509803921566" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
